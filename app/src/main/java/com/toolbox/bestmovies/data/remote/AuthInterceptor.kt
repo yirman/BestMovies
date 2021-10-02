@@ -9,7 +9,7 @@ class AuthInterceptor(private val type: String?, private val accessToken: String
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request().newBuilder().addHeader(
-            "Authorization", "$type $accessToken").build()
+            "Authorization", "$type" + " "+  "$accessToken").build()
         return chain.proceed(request)
     }
 }

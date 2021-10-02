@@ -1,9 +1,12 @@
 package com.toolbox.bestmovies.data.remote
 
-class AuthRemoteDataSource constructor(
-    private val authService: AuthService
+import dagger.Lazy
+import javax.inject.Inject
+
+class AuthRemoteDataSource @Inject constructor(
+    private val authService: Lazy<AuthService>
 ): RemoteDataSource(){
 
-    suspend fun requestAuth(key: String) = getResult { authService.requestAuth(key) }
+    suspend fun requestAuth(key: String) = getResult { authService.get().requestAuth(key) }
 
 }
