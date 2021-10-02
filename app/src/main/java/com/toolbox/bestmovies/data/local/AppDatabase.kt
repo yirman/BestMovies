@@ -12,6 +12,7 @@ import com.toolbox.bestmovies.data.entities.Movie
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun carouselDao(): CarouselDao
+    abstract fun authDao(): AuthDao
 
     companion object {
         @Volatile private var instance: AppDatabase? = null
