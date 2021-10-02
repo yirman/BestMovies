@@ -4,7 +4,7 @@ import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
 
-class AuthInterceptor(private val type: String, private val accessToken: String) : Interceptor {
+class AuthInterceptor(private val type: String?, private val accessToken: String?) : Interceptor {
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
