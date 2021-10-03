@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CarouselViewModel @Inject constructor(
-    private val repository: CarouselRepository
+    repository: CarouselRepository
 ) : ViewModel() {
-    val characters = repository.getCarousels()
+    val carousels = repository.getCarousels()
 }

@@ -11,15 +11,14 @@ fun <T, A> performGetOperation(databaseQuery: () -> LiveData<T>,
                                saveCallResult: (A) -> Unit): LiveData<Resource<T>> =
     liveData(Dispatchers.IO) {
         emit(Resource.loading())
-        val source: LiveData<Resource<T>> = databaseQuery.invoke().map { Resource.success(it) }
-        emitSource(source)
+
 
         val responseStatus = networkCall.invoke()
         if (responseStatus.status == Resource.Status.SUCCESS) {
             saveCallResult(responseStatus.data!!)
-
         } else if (responseStatus.status == Resource.Status.ERROR) {
             emit(Resource.error(responseStatus.message!!))
+            val source: LiveData<Resource<T>> = databaseQuery.invoke().map { Resource.success(it) }
             emitSource(source)
         }
     }

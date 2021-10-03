@@ -34,6 +34,19 @@ class CarouselsFragment : Fragment() {
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupObserver()
+    }
+
+    private fun setupObserver(){
+        viewModel.carousels.observe(viewLifecycleOwner, {
+            when (it.status) {
+
+            }
+        })
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
