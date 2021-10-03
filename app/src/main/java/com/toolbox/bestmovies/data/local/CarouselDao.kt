@@ -17,9 +17,6 @@ abstract class CarouselDao {
     @Query("SELECT * FROM carousels")
     abstract fun queryCarousels(): LiveData<List<CarouselWithMovies>>
 
-    @Query("SELECT * FROM movies")
-    abstract fun queryMovies(): LiveData<List<Movie>>
-
     @Insert(onConflict = REPLACE)
     abstract fun insertCarousel(carousel: Carousel): Long
 
