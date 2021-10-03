@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.toolbox.bestmovies.databinding.FragmentMoviePlayerBinding
-import com.toolbox.bestmovies.ui.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 

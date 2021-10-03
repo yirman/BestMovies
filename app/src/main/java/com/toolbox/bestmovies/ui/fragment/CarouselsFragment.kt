@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.toolbox.bestmovies.R
 import com.toolbox.bestmovies.data.remote.Resource
 import com.toolbox.bestmovies.databinding.FragmentCarouselsBinding
-import com.toolbox.bestmovies.ui.CarouselViewModel
 import com.toolbox.bestmovies.ui.adapters.CarouselAdapter
 import dagger.hilt.android.AndroidEntryPoint
 

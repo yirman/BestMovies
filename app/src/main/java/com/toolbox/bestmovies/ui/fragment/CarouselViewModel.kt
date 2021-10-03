@@ -1,4 +1,4 @@
-package com.toolbox.bestmovies.ui
+package com.toolbox.bestmovies.ui.fragment
 
 import androidx.lifecycle.ViewModel
 import com.toolbox.bestmovies.data.repository.CarouselRepository

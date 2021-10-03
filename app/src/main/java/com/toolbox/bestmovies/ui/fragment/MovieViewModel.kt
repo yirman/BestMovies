@@ -1,4 +1,4 @@
-package com.toolbox.bestmovies.ui
+package com.toolbox.bestmovies.ui.fragment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
