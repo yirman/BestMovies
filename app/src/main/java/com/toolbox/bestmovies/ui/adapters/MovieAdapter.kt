@@ -1,6 +1,7 @@
 package com.toolbox.bestmovies.ui.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -10,7 +11,7 @@ import com.toolbox.bestmovies.data.entities.Carousel
 import com.toolbox.bestmovies.data.entities.Movie
 import com.toolbox.bestmovies.databinding.ItemMovieBinding
 
-class MovieAdapter (private val carouselType: String?): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter (private val carouselType: String?, private val listener: OnMovieClickListener): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     private val items = mutableListOf<Movie>()
 
@@ -38,14 +39,14 @@ class MovieAdapter (private val carouselType: String?): RecyclerView.Adapter<Mov
         val imageView = LayoutInflater.from(parent.context)
             .inflate(imageViewLayout, parent, false)
         binding.imageViewContainer.addView(imageView)
-        return MovieViewHolder(binding)
+        return MovieViewHolder(binding, listener)
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) = holder.bind(items[position])
 
     override fun getItemCount(): Int = items.size
 
-    class MovieViewHolder(private val itemBinding: ItemMovieBinding): RecyclerView.ViewHolder(itemBinding.root){
+    class MovieViewHolder(private val itemBinding: ItemMovieBinding, private val listener: OnMovieClickListener): RecyclerView.ViewHolder(itemBinding.root){
 
         fun bind (movie: Movie){
             itemBinding.tvTitle.text = movie.title
@@ -53,11 +54,18 @@ class MovieAdapter (private val carouselType: String?): RecyclerView.Adapter<Mov
                 .load(movie.imageUrl)
                 .signature(ObjectKey(movie))
                 .into(itemBinding.imageViewContainer.findViewById(R.id.iv_movie))
+            itemBinding.root.setOnClickListener {
+                listener.onClickMovie(movie.id)
+            }
         }
     }
 
     companion object {
         private const val ITEM_THUMB = 0
         private const val ITEM_POSTER = 1
+    }
+
+    interface OnMovieClickListener{
+        fun onClickMovie(id: Int)
     }
 }

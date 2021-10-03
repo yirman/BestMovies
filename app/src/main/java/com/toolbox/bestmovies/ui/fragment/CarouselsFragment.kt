@@ -15,7 +15,7 @@ import com.toolbox.bestmovies.ui.adapters.CarouselAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CarouselsFragment : Fragment() {
+class CarouselsFragment : Fragment(), CarouselAdapter.MovieHandler {
 
     private var _binding: FragmentCarouselsBinding? = null
     private val binding get() = _binding!!
@@ -46,7 +46,7 @@ class CarouselsFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapter = CarouselAdapter()
+        adapter = CarouselAdapter(this)
         binding.rvCarousels.layoutManager = LinearLayoutManager(requireContext())
         binding.rvCarousels.adapter = adapter
     }
@@ -70,6 +70,10 @@ class CarouselsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onClickMovie(idMovie: Int) {
+
     }
 
 }
