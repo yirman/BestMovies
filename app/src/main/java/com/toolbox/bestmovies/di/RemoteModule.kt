@@ -4,10 +4,7 @@ import androidx.annotation.Nullable
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.toolbox.bestmovies.data.local.AuthDao
-import com.toolbox.bestmovies.data.remote.AppAuthenticator
-import com.toolbox.bestmovies.data.remote.AuthInterceptor
-import com.toolbox.bestmovies.data.remote.AuthRemoteDataSource
-import com.toolbox.bestmovies.data.remote.AuthService
+import com.toolbox.bestmovies.data.remote.*
 import dagger.Lazy
 import dagger.Module
 import dagger.Provides
@@ -71,4 +68,11 @@ object RemoteModule {
     @Singleton
     @Provides
     fun provideAuthRemoteDataSource(authService: Lazy<AuthService>): AuthRemoteDataSource = AuthRemoteDataSource(authService)
+
+    @Provides
+    fun provideCarouselService(retrofit: Retrofit): CarouselService = retrofit.create(CarouselService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideCarouselRemoteDataSource(carouselService: Lazy<CarouselService>): CarouselRemoteDataSource = CarouselRemoteDataSource(carouselService)
 }

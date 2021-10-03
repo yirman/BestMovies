@@ -21,6 +21,10 @@ object DatabaseModule {
 
     @Singleton
     @Provides
+    fun provideCarouselDao(db: AppDatabase) = db.carouselDao()
+
+    @Singleton
+    @Provides
     fun provideAuthDao(db: AppDatabase) = db.authDao()
 
     @Singleton

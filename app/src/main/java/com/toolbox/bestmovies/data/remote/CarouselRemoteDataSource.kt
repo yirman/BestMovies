@@ -1,9 +1,12 @@
 package com.toolbox.bestmovies.data.remote
 
-class CarouselRemoteDataSource constructor(
-    private val carouselService: CarouselService
+import dagger.Lazy
+import javax.inject.Inject
+
+class CarouselRemoteDataSource @Inject constructor(
+    var carouselService: Lazy<CarouselService>
 ): RemoteDataSource(){
 
-    suspend fun requestCarousels() = getResult { carouselService.requestCarousels() }
+    suspend fun requestCarousels() = getResult { carouselService.get().requestCarousels() }
 
 }

@@ -26,14 +26,16 @@ abstract class CarouselDao {
     @Insert(onConflict = REPLACE)
     abstract fun insertMovies(movie: List<Movie>)
 
-    fun insertCarouselWithMovies(carousel: Carousel) {
-        val carouselId = insertCarousel(carousel)
-        val movies = carousel.items
-        movies?.let{
-            for(movie in it){
-                movie.carouselId = carouselId
+    fun insertCarouselsWithMovies(carousels: List<Carousel>) {
+        carousels.forEach { carousel ->
+            val carouselId = insertCarousel(carousel)
+            val movies = carousel.items
+            movies?.let{ list ->
+                for(movie in list){
+                    movie.carouselId = carouselId
+                }
+                insertMovies(movies)
             }
-            insertMovies(movies)
         }
     }
 }
