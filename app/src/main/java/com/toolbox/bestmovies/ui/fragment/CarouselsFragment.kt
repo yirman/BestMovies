@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.toolbox.bestmovies.R
 import com.toolbox.bestmovies.data.remote.Resource
 import com.toolbox.bestmovies.databinding.FragmentCarouselsBinding
 import com.toolbox.bestmovies.ui.CarouselViewModel
@@ -73,7 +76,10 @@ class CarouselsFragment : Fragment(), CarouselAdapter.MovieHandler {
     }
 
     override fun onClickMovie(idMovie: Int) {
-
+        findNavController().navigate(
+            R.id.action_carouselsFragment_to_videoPlayerFragment,
+            bundleOf("id" to idMovie)
+        )
     }
 
 }

@@ -9,6 +9,21 @@
         android:id="@+id/carouselsFragment"
         android:name="com.toolbox.bestmovies.ui.fragment.CarouselsFragment"
         android:label="Movies"
-        tools:layout="@layout/fragment_carousels" />
+        tools:layout="@layout/fragment_carousels" >
+
+        <action
+            android:id="@+id/action_carouselsFragment_to_videoPlayerFragment"
+            app:destination="@id/videoPlayerFragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/videoPlayerFragment"
+        android:name="com.toolbox.bestmovies.ui.fragment.MoviePlayerFragment"
+        android:label="Trailer"
+        tools:layout="@layout/fragment_movie_player" />
+
+
 
 </navigation>
