@@ -11,4 +11,9 @@ data class Carousel @JvmOverloads constructor(
     @SerializedName("title") var title : String? = null,
     @SerializedName("type") var type : String? = null,
     @SerializedName("items") @Ignore var items : List<Movie>? = null
-)
+){
+    companion object {
+        const val TYPE_THUMB = "thumb"
+        const val TYPE_POSTER = "poster"
+    }
+}
