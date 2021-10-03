@@ -17,6 +17,6 @@ class CarouselRepository @Inject constructor(
     fun getCarousels(): LiveData<Resource<List<CarouselWithMovies>>> = performGetOperation(
         databaseQuery = { localDataSource.queryCarousels() },
         networkCall = { remoteDataSource.requestCarousels() },
-        saveCallResult = { localDataSource.insertCarouselsWithMovies(it) }
+        saveCallResult = { localDataSource.deleteAllCarousels().run{ localDataSource.insertCarouselsWithMovies(it) } }
     )
 }
