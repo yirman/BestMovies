@@ -15,4 +15,7 @@ abstract class AuthDao {
     @Query("SELECT * FROM Auth LIMIT 1")
     abstract fun queryAuth(): Auth?
 
+    @Query("DELETE FROM Auth")
+    abstract fun deleteAuth()
+
 }

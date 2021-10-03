@@ -7,6 +7,6 @@ class AuthRemoteDataSource @Inject constructor(
     private val authService: Lazy<AuthService>
 ): RemoteDataSource(){
 
-    suspend fun requestAuth(key: String) = getResult { authService.get().requestAuth(key) }
+    fun requestAuth(key: String) = authService.get().requestAuth(key)
 
 }
