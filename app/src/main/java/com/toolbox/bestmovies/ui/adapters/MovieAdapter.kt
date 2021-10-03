@@ -3,6 +3,8 @@ package com.toolbox.bestmovies.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.signature.ObjectKey
 import com.toolbox.bestmovies.R
 import com.toolbox.bestmovies.data.entities.Carousel
 import com.toolbox.bestmovies.data.entities.Movie
@@ -47,6 +49,10 @@ class MovieAdapter (private val carouselType: String?): RecyclerView.Adapter<Mov
 
         fun bind (movie: Movie){
             itemBinding.tvTitle.text = movie.title
+            Glide.with(itemBinding.root)
+                .load(movie.imageUrl)
+                .signature(ObjectKey(movie))
+                .into(itemBinding.imageViewContainer.findViewById(R.id.iv_movie))
         }
     }
 
