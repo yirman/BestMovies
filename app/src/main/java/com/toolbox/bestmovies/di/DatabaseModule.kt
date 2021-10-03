@@ -25,6 +25,10 @@ object DatabaseModule {
 
     @Singleton
     @Provides
+    fun provideMovieDao(db: AppDatabase) = db.movieDao()
+
+    @Singleton
+    @Provides
     fun provideAuthDao(db: AppDatabase) = db.authDao()
 
     @Singleton
