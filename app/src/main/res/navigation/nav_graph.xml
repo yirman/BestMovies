@@ -21,7 +21,6 @@
     <dialog
         android:id="@+id/movieInfoFragment"
         android:name="com.toolbox.bestmovies.ui.fragment.MovieInfoFragment"
-        android:label="Trailer"
         tools:layout="@layout/fragment_movie_info" >
 
         <action
@@ -35,7 +34,7 @@
     <fragment
         android:id="@+id/moviePlayerFragment"
         android:name="com.toolbox.bestmovies.ui.fragment.MoviePlayerFragment"
-        android:label="Movies"
+        android:label="Trailer"
         tools:layout="@layout/fragment_movie_player" />
 
 

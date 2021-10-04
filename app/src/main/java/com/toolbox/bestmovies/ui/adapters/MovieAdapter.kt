@@ -10,6 +10,7 @@ import com.toolbox.bestmovies.R
 import com.toolbox.bestmovies.data.entities.Carousel
 import com.toolbox.bestmovies.data.entities.Movie
 import com.toolbox.bestmovies.databinding.ItemMovieBinding
+import com.toolbox.bestmovies.utils.setOnSingleClickListener
 
 class MovieAdapter (private val carouselType: String?, private val listener: OnMovieClickListener): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
@@ -54,7 +55,7 @@ class MovieAdapter (private val carouselType: String?, private val listener: OnM
                 .load(movie.imageUrl)
                 .signature(ObjectKey(movie))
                 .into(itemBinding.imageViewContainer.findViewById(R.id.iv_movie))
-            itemBinding.root.setOnClickListener {
+            itemBinding.root.setOnSingleClickListener {
                 listener.onClickMovie(movie.id)
             }
         }
