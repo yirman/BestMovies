@@ -76,7 +76,7 @@ class CarouselsFragment : Fragment(), CarouselAdapter.MovieHandler {
 
     override fun onClickMovie(idMovie: Int) {
         findNavController().navigate(
-            R.id.action_carouselsFragment_to_videoPlayerFragment,
+            R.id.action_carouselsFragment_to_movieInfoFragment,
             bundleOf("id" to idMovie)
         )
     }

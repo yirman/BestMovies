@@ -2,4 +2,6 @@
     <string name="app_name">Best Movies</string>
     <string name="description_thumb_image">thumb image</string>
     <string name="description_poster_image">poster image</string>
+    <string name="action_watch_trailer">Watch Trailer</string>
+    <string name="msg_trailer_not_available">Trailer not available</string>
 </resources>

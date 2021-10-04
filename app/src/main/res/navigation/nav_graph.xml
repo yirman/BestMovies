@@ -12,18 +12,31 @@
         tools:layout="@layout/fragment_carousels" >
 
         <action
-            android:id="@+id/action_carouselsFragment_to_videoPlayerFragment"
-            app:destination="@id/videoPlayerFragment" />
+            android:id="@+id/action_carouselsFragment_to_movieInfoFragment"
+            app:destination="@id/movieInfoFragment" />
 
     </fragment>
 
 
-    <fragment
-        android:id="@+id/videoPlayerFragment"
-        android:name="com.toolbox.bestmovies.ui.fragment.MoviePlayerFragment"
+    <dialog
+        android:id="@+id/movieInfoFragment"
+        android:name="com.toolbox.bestmovies.ui.fragment.MovieInfoFragment"
         android:label="Trailer"
-        tools:layout="@layout/fragment_movie_player" />
+        tools:layout="@layout/fragment_movie_info" >
 
+        <action
+            android:id="@+id/action_movieInfoFragment_to_moviePlayerFragment"
+            app:destination="@id/moviePlayerFragment" />
+
+    </dialog>
+
+
+
+    <fragment
+        android:id="@+id/moviePlayerFragment"
+        android:name="com.toolbox.bestmovies.ui.fragment.MoviePlayerFragment"
+        android:label="Movies"
+        tools:layout="@layout/fragment_movie_player" />
 
 
 </navigation>
