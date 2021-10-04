@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.FrameLayout
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
@@ -38,6 +39,10 @@ class MovieInfoFragment : BottomSheetDialogFragment() {
             BottomSheetBehavior.from(bottomSheet).state = BottomSheetBehavior.STATE_EXPANDED
             BottomSheetBehavior.from(bottomSheet).skipCollapsed = true
             BottomSheetBehavior.from(bottomSheet).isHideable = true
+
+            val layoutParams = bottomSheet.layoutParams
+            layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT
+            bottomSheet.layoutParams = layoutParams
         }
         return bottomSheetDialog
     }
