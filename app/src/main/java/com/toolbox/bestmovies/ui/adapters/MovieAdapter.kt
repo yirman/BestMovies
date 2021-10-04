@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.signature.ObjectKey
 import com.toolbox.bestmovies.R
@@ -53,6 +54,7 @@ class MovieAdapter (private val carouselType: String?, private val listener: OnM
             itemBinding.tvTitle.text = movie.title
             Glide.with(itemBinding.root)
                 .load(movie.imageUrl)
+                .placeholder(CircularProgressDrawable(itemBinding.root.context).apply { start() })
                 .signature(ObjectKey(movie))
                 .into(itemBinding.imageViewContainer.findViewById(R.id.iv_movie))
             itemBinding.root.setOnSingleClickListener {

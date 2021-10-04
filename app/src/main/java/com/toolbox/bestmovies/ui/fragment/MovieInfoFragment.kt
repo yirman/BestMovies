@@ -8,6 +8,7 @@ import android.widget.Button
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.signature.ObjectKey
 import com.google.android.exoplayer2.MediaItem
@@ -56,6 +57,7 @@ class MovieInfoFragment : BottomSheetDialogFragment() {
         viewModel.movie.observe(viewLifecycleOwner, { movie ->
             Glide.with(binding.root)
                 .load(movie.imageUrl)
+                .placeholder(CircularProgressDrawable(binding.root.context).apply { start() })
                 .signature(ObjectKey(movie))
                 .into(binding.ivImage.ivMovie)
 
