@@ -51,6 +51,11 @@ class CarouselsFragment : Fragment(), CarouselAdapter.MovieHandler {
         adapter = CarouselAdapter(this)
         binding.rvCarousels.layoutManager = LinearLayoutManager(requireContext())
         binding.rvCarousels.adapter = adapter
+        binding.swipeRefresh.setOnRefreshListener {
+            findNavController().navigate(
+                R.id.refresh
+            )
+        }
     }
 
     private fun setupObserver(){

@@ -15,6 +15,12 @@
             android:id="@+id/action_carouselsFragment_to_movieInfoFragment"
             app:destination="@id/movieInfoFragment" />
 
+        <action
+            android:id="@+id/refresh"
+            app:destination="@id/carouselsFragment"
+            app:popUpTo="@+id/carouselsFragment"
+            app:popUpToInclusive="true"/>
+
     </fragment>
 
 
