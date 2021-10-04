@@ -72,7 +72,7 @@ class CarouselsFragment : Fragment(), CarouselAdapter.MovieHandler {
                     }
                 }
                 Resource.Status.ERROR -> {
-                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.msg_check_internet_connection), Toast.LENGTH_SHORT).show()
                     if(adapter.itemCount == 0) binding.tvNoData.visibility = View.VISIBLE
                 }
 

@@ -5,4 +5,5 @@
     <string name="action_watch_trailer">Watch Trailer</string>
     <string name="msg_trailer_not_available">Trailer not available</string>
     <string name="msg_no_carousel_data">No data available, come back later!</string>
+    <string name="msg_check_internet_connection">Check internet connection</string>
 </resources>
