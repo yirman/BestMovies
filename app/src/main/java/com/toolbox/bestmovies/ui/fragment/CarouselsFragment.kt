@@ -63,13 +63,23 @@ class CarouselsFragment : Fragment(), CarouselAdapter.MovieHandler {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
                     binding.progressBar.visibility = View.GONE
-                    if (!it.data.isNullOrEmpty()) adapter.setItems(ArrayList(it.data))
+                    if (!it.data.isNullOrEmpty()) {
+                        adapter.setItems(ArrayList(it.data))
+                        binding.tvNoData.visibility = View.GONE
+                    }
+                    else{
+                        binding.tvNoData.visibility = View.VISIBLE
+                    }
                 }
-                Resource.Status.ERROR ->
+                Resource.Status.ERROR -> {
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                    if(adapter.itemCount == 0) binding.tvNoData.visibility = View.VISIBLE
+                }
 
-                Resource.Status.LOADING ->
+                Resource.Status.LOADING -> {
                     binding.progressBar.visibility = View.VISIBLE
+                    binding.tvNoData.visibility = View.GONE
+                }
             }
         })
     }
